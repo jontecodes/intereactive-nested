@@ -1,10 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div style="text-align:center; border: 2px solid orange; padding: 5px;">
   <h1>
     {{ title }}
   </h1>
-  <h2>All the tasks:</h2>
-  <li *ngFor="let task of tasks">{{task}}</li>
-  <h2>The third task:</h2>
-  <li>{{tasks[2]}}</li>
-<router-outlet></router-outlet>
+
+  <div style="border: 2px solid blue; padding: 5px;">
+    <button (click)="onButtonClick($event)">GET ALL TASKS</button>
+
+    <div *ngFor="let task of tasks">
+      <p>{{task.title}}</p>
+      <button (click)="onShowClick(task._id)">SHOW</button>
+      <!-- <a href="{{task._id}}">Hello</a> -->
+    </div>
+  </div>
+
+  <div *ngFor="let one of all">
+    <div style="border: 2px solid green; padding: 5px; margin-top: 5px;">
+      <p>{{one.title}}</p>
+      <p>{{one.description}}</p>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
