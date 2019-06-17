@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     obs.subscribe(data => {
       this.all = data['data'];
       console.log(this.all);
-      console.log('Got some data', data.data);
+      console.log('Got some data', data['data']);
     })
   }
   getTasksFromService(){
